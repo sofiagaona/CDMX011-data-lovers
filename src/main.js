@@ -8,7 +8,7 @@ let objTexBox1 = document.getElementById("txbxnumeropokemon");
 document.getElementById("btnbuscar").addEventListener("click",filtrar);
 document.getElementById("filtrouno").addEventListener("toggle",fnOcultarTxBx)
 
-document.getElementById("test").innerHTML = data.pokemon[0]['size']['height'];
+//document.getElementById("test").innerHTML = data.pokemon[0]['size']['height'];
 
 
 function filtrar(){
