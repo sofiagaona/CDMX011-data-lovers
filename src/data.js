@@ -2,11 +2,11 @@
 
 
 export const filterData = (data, condition) => {
-
-  var filterByCondition= Object.filter((pokemon)=>(pokemon.name=condition));
+ 
+  //var filterByCondition = data.filter(filtro)
 
   //var descriptionPok= data.pokemon.find(pokemon => pokemon.name === "charizard");
-  return filterByCondition;
+  return data
 };
 
 
@@ -19,4 +19,4 @@ if (sortOrder==="asc"){
     return data.pokemon.sort((a, b) => b[sortBy].localeCompare(a[sortBy]))
   }
 }
-
+ 
