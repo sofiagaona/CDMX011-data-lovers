@@ -1,2 +1,7 @@
 export default {
-    "pokemon": [{}]}
+    "type": [
+        "fire",
+        "poison",
+        "water"
+    ]
+}
