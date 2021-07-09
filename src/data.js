@@ -1,5 +1,3 @@
-// estas funciones son de ejemplo
-
 
 export const filterData = (data, condition) => {
 
@@ -19,4 +17,15 @@ if (sortOrder==="asc"){
     return data.pokemon.sort((a, b) => b[sortBy].localeCompare(a[sortBy]))
   }
 }
+
+export const fnFiltradoTipo = (data) => {
+  
+  //respuesta = respuesta + data['pokemon'][i]['type'];
+  
+  console.log(data.pokemon.key);
+  
+  
+  //return respuesta;
+ 
+};
 
