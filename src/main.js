@@ -6,6 +6,37 @@ import data2 from './data/pokemon/types.js';
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
 let objFiltoUno = document.getElementById("filtrouno"); // convertir a objeto el Menu desplegable 1
 let objFiltoDos = document.getElementById("filtrodos"); // convertir a objeto el Menu desplegable 2
 
