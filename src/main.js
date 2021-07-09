@@ -1,7 +1,9 @@
 import { fnFiltradoTipo } from './data.js';
 import data from './data/pokemon/pokemon.js';
+import data2 from './data/pokemon/types.js';
 
-console.log(data);
+
+
 
 
 let objFiltoUno = document.getElementById("filtrouno"); // convertir a objeto el Menu desplegable 1
@@ -29,7 +31,8 @@ function fnMenuDos(){
 }
 
 function filtrar(){
-  fnFiltradoTipo(data)
+  
+  fnFiltradoTipo(data2);
 }
 
 function fnOcultarTxBx(){
