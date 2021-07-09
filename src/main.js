@@ -1,11 +1,6 @@
 
 import data from './data/pokemon/pokemon.js';
 import data2 from './data/pokemon/types.js';
-
-
-
-<<<<<<< HEAD
-=======
 import { sortData } from './data.js';
 import {filterData} from './data.js';
 
@@ -32,7 +27,6 @@ function addOptions(prop) {
 
 
  
->>>>>>> 0776e34da334c3d5b7c8784164c48f9b560b79c8
 
 
 
