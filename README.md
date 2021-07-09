@@ -39,10 +39,7 @@ _conjunto (set) de datos_** que se adecúe a lo que descubras que tu usuario
 necesita.
 
 Como entregable final tendrás una página web que permita **visualizar la data,
-filtrarla, ordenarla y hacer algún cálculo agregado**. Con cálculo agregado
-nos referimos a distintos cálculos que puedes hacer con la data para mostrar
-información aún más relevante para los usuarios (promedio, el valor máximo
-o mínimo, etc).
+filtrarla y ordenarla**.
 
 Esta vez te proponemos una serie de datos de diferentes _temáticas_ para que
 explores y decidas con qué temática te interesa trabajar. Hemos elegido
@@ -242,24 +239,9 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
 - [ ] **Diferenciar entre expresiones (expressions) y sentencias (statements)**
 
 ### Control de Versiones (Git y GitHub)
-
-- [ ] **Git: Instalación y configuración**
-
-- [ ] **Git: Control de versiones con git (init, clone, add, commit, status, push, pull, remote)**
-
-- [ ] **Git: Integración de cambios entre ramas (branch, checkout, fetch, merge, reset, rebase, tag)**
-
-- [ ] **GitHub: Creación de cuenta y repos, configuración de llaves SSH**
-
-- [ ] **GitHub: Despliegue con GitHub Pages**
-
-  <details><summary>Links</summary><p>
-
-  * [Sitio oficial de GitHub Pages](https://pages.github.com/)
-</p></details>
-
-- [ ] **GitHub: Colaboración en Github (branches | forks | pull requests | code review | tags)**
-
+- [ ] Uso de comandos de git (add | commit | pull | status | push)
+- [ ] Manejo de repositorios de GitHub (clone | fork | gh-pages)
+- [ ] Colaboración en Github (branches | pull requests | |tags)
 ### UX (User eXperience)
 
 - [ ] **Diseñar la aplicación pensando en y entendiendo al usuario**

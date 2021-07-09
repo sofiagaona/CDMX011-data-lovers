@@ -39,9 +39,12 @@ console.log(filterAlphabe)*/
 let objTexBox1 = document.getElementById("txbxnumeropokemon"); //Convertir a objeto el textbox de numero de pokemon
 document.getElementById("btnbuscar").addEventListener("click",filtrar); //listener de boton filtrar o buscar
 document.getElementById("filtrouno").addEventListener("toggle",fnOcultarTxBx) //listener de cambios en menu desplegable 1
+document.getElementById("filtrodos").addEventListener("change",fnMenuDos);
 
-//document.getElementById("test").innerHTML = data.pokemon[0]['size']['height'];
 
+function fnFiltadoAlfabetico(){
+  
+}
 
 /*function fnfiltradoTipo(){
   console.log(objTexBox1.value);
@@ -55,6 +58,16 @@ document.getElementById("filtrouno").addEventListener("toggle",fnOcultarTxBx) //
   return data
   
 }*/
+function fnMenuDos(){
+  console.log("cambio de menu");
+  if(objFiltoDos.option.value =="water"){
+    console.log("cambio a agua");
+  }
+}
+
+function filtrar(){
+  fnFiltradoTipo(data)
+}
 
 /*function fnOcultarTxBx(){
 
