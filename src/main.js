@@ -12,8 +12,14 @@ var propertyFiltro1= Object.keys(data.pokemon[0]) //recuperamos propiedades
      propertyFiltro1.splice(3,2) //quitamos en el array de propiedades img y about (no queremos que este en nuestro menu)
      propertyFiltro1.sort() //lo ordenamos alfabeticamente para mostrar en menú
 
+
      addOptions(propertyFiltro1) //llena el selector del filtro 1
+     let objFiltro1 =document.getElementById("filtrouno")
+     document.getElementById("filtrouno").addEventListener("change", addPropFiltro2);
+
      
+    
+       
      
      addListPok(data) //Muestra todos los pokemons en pantalla
 
@@ -39,7 +45,31 @@ function addOptions(prop) { //En esta funciòn llenamos el filtro1 con las propi
   }
   }
 
+  
 
+  function addPropFiltro2() { //En esta funciòn llenamos el filtro1 con las propieades excepto img y about
+
+    let optionFiltro1= objFiltro1.value;
+    
+    const objFiltoDos = document.getElementById("filtrodos");
+    let tipo;
+    let arrayProp=[];
+    for (let i=0; i<=3; i++){
+      
+       for(let j=0; j<=data.pokemon[i][optionFiltro1].length-1;j++){
+        tipo = Object.values(data.pokemon[i][optionFiltro1]);
+        arrayProp.push(tipo[j])
+      }
+      
+    }
+    console.log(arrayProp);
+    /*for (let value in prop) {
+     var option = document.createElement("option");
+     option.text = prop[value];
+     objFiltoUno.add(option);
+    }*/
+    }
+  
 
 
  
