@@ -13,7 +13,9 @@ var propertyFiltro1= Object.keys(data.pokemon[0]) //recuperamos propiedades
      propertyFiltro1.sort() //lo ordenamos alfabeticamente para mostrar en menú
 
      addOptions(propertyFiltro1) //llena el selector del filtro 1
-     
+  var propertyFiltro2= Object.keys(propertyFiltro1["generation"])   
+  console.log(Object.keys(propertyFiltro1[4]))
+
      
      addListPok(data) //Muestra todos los pokemons en pantalla
 
