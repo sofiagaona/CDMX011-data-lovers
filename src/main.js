@@ -4,26 +4,28 @@ import data2 from './data/pokemon/types.js';
 import { sortData } from './data.js';
 import {filterData} from './data.js';
 
-var sortby="name";
-var soryOrder="asc";
+console.log(data);
+const objFiltroDos = document.getElementById("filtrodos");
+const objFiltroUno = document.getElementById("filtrouno");
 
+document.getElementById("filtrouno").addEventListener("change", addPropFiltro2);
+//document.getElementById("btnbuscar").addEventListener("click",filtrar);
 
 var propertyFiltro1= Object.keys(data.pokemon[0]) //recuperamos propiedades
-     propertyFiltro1.splice(3,2) //quitamos en el array de propiedades img y about (no queremos que este en nuestro menu)
-     propertyFiltro1.sort() //lo ordenamos alfabeticamente para mostrar en menú
-
+     
+propertyFiltro1 = propertyFiltro1.filter(function(exc) {
+  if(exc != 'size' && exc != 'img' && exc != 'weaknesses' && exc != 'about'&& exc != 'generation' && exc != 'pokemon-rarity' && exc != 'encounter' && exc != 'spawn-chance' && exc  != 'buddy-distance-km'){
+    return true
+  }
+  else{
+    return false
+  }
+});
 
      addOptions(propertyFiltro1) //llena el selector del filtro 1
-     let objFiltro1 =document.getElementById("filtrouno")
-     document.getElementById("filtrouno").addEventListener("change", addPropFiltro2);
-
-     
-    
-       
-     
      addListPok(data) //Muestra todos los pokemons en pantalla
 
-//console.log (sortData (data,sortby,soryOrder));
+
 
 function addListPok(data){ // En esta funcion llenamos la lista para mostrar todos lo pokemon en pantalla
   var listPok = data.pokemon.map(function(pok){
@@ -35,93 +37,148 @@ document.getElementById("listPok").innerHTML = listPok.join(""); //con el metodo
 
 function addOptions(prop) { //En esta funciòn llenamos el filtro1 con las propieades excepto img y about
 
-  const objFiltoUno = document.getElementById("filtrouno");
-  
-  
   for (let value in prop) {
-   var option = document.createElement("option");
-   option.text = prop[value];
-   objFiltoUno.add(option);
+    var option = document.createElement("option");
+    option.text = traductor(prop[value]);
+    option.value=prop[value];
+    objFiltroUno.add(option);
+   
   }
-  }
-
   
+}
 
-  function addPropFiltro2() { //En esta funciòn llenamos el filtro1 con las propieades excepto img y about
+function addPropFiltro2() { //En esta funciòn llenamos el filtro1 con las propieades excepto img y about
 
-    let optionFiltro1= objFiltro1.value;
-    
-    const objFiltoDos = document.getElementById("filtrodos");
-    let tipo;
-    let arrayProp=[];
-    for (let i=0; i<=3; i++){
+  let optionFiltro1= objFiltroUno.value;
+  
+  let tipo;
+  let tipoArray="";
+  let arrayProp=[];
+  
+  for (let i=0; i<=data.pokemon.length-1; i++){
+   
+    if(optionFiltro1=== "name"){
       
-       for(let j=0; j<=data.pokemon[i][optionFiltro1].length-1;j++){
-        tipo = Object.values(data.pokemon[i][optionFiltro1]);
-        arrayProp.push(tipo[j])
+      tipo = Object.values(data.pokemon[i][optionFiltro1]);
+      tipoArray="";
+      for(let k=0; k<=tipo.length-1;k++){
+        tipoArray=tipoArray+tipo[k];
       }
-      
+      arrayProp.push(tipoArray);
     }
-    console.log(arrayProp);
-    /*for (let value in prop) {
-     var option = document.createElement("option");
-     option.text = prop[value];
-     objFiltoUno.add(option);
-    }*/
+    else{
+    for(let j=0; j<=data.pokemon[i][optionFiltro1].length-1;j++){
+      tipo = Object.values(data.pokemon[i][optionFiltro1][j]);
+      tipoArray="";
+      for(let k=0; k<=tipo.length-1;k++){
+        tipoArray=tipoArray+tipo[k];
+      }
+      arrayProp.push(tipoArray);
     }
+   }
+  }
+  console.log(arrayProp);
+  let subcategoria= arrayProp.filter((item, index)=>{
+    
+    return arrayProp.indexOf(item)===index;
+  })
+  
+  subcategoria.sort();
+  
+  document.getElementById("filtrodos").innerHTML="";
+  for (let value in subcategoria) {
+    let option = document.createElement("option");
+    
+    if (optionFiltro1==="name"){
+      option.text = subcategoria[value];
+      option.value=subcategoria[value];
+    }
+    else{
+    option.text = traductor(subcategoria[value]);
+    option.value=subcategoria[value];
+    }
+    objFiltroDos.add(option);
+    
+  }
+
+}
   
 
-
+function traductor(palabra){
+  switch (palabra){
+    case "name": return "Nombre"
+    break;
+    case "num": return "Número"
+    break;
+    case "egg": return "Huevo"
+    break;
+    case "evolution": return "Evolución"
+    break;
+    case "quick-move": return "Movimiento rapido"
+    break;
+    case "resistant": return "Resistencia"
+    break;
+    case "special-attack": return "Ataque especial"
+    break;
+    case "stats": return "Estadisticas"
+    break;
+    case "type": return "Tipo"
+    break;
+    case "bug": return "Insecto"
+    break;
+    case "dark": return "Maligno"
+    break;
+    case "dragon": return "Dragón"
+    break;
+    case "electric": return "Electrico"
+    break;
+    case "fairy": return "Ada"
+    break;
+    case "fighting": return "Pelea"
+    break;
+    case "fire": return "Fuego"
+    break;
+    case "flying": return "Volador"
+    break;
+    case "ghost": return "Fantasma"
+    break;
+    case "grass": return "Planta"
+    break;
+    case "ground": return "Tierra"
+    break;
+    case "ice": return "Hielo"
+    break;
+    case "normal": return "Normal"
+    break;
+    case "poison": return "Veneno"
+    break;
+    case "psychic": return "Psiquico"
+    break;
+    case "rock": return "Roca"
+    break;
+    case "steel": return "Metal"
+    break;
+    case "water": return "Agua"
+    break;
+    default: return "no definido"
+   
+  }
+}
  
 
 
 
-/*var filterAlphabe=filterAlphabe(data)
-console.log(filterAlphabe)*/
-// elementos del filto
-// Por Numero de pokemon
-// Por Tipo de Pokemon
-// Por Orden Alfabetico
-let objTexBox1 = document.getElementById("txbxnumeropokemon"); //Convertir a objeto el textbox de numero de pokemon
-document.getElementById("btnbuscar").addEventListener("click",filtrar); //listener de boton filtrar o buscar
-document.getElementById("filtrouno").addEventListener("toggle",fnOcultarTxBx) //listener de cambios en menu desplegable 1
-document.getElementById("filtrodos").addEventListener("change",fnMenuDos);
 
 
-function fnFiltadoAlfabetico(){
-  
-}
-
-/*function fnfiltradoTipo(){
-  console.log(objTexBox1.value);
-  document.getElementById("test").innerHTML = data['pokemon'][objTexBox1.value-1]['num'];
-  document.getElementById("test").innerHTML = data['pokemon'][objTexBox1.value-1]['name'];
-}*/
 
 
-/*function fnFiltadoAlfabetico(data){
-  console.log(data)
-  return data
-  
-}*/
-function fnMenuDos(){
-  console.log("cambio de menu");
-  if(objFiltoDos.option.value =="water"){
-    console.log("cambio a agua");
-  }
-}
 
-function filtrar(){
-  fnFiltradoTipo(data2);
-}
 
-/*function fnOcultarTxBx(){
 
-  console.log(objFiltoUno.value);
-  if(objFiltoUno.value==1){
 
-  }
-}*/
+
+
+
 
 
  
