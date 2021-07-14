@@ -8,8 +8,9 @@ console.log(data);
 const objFiltroDos = document.getElementById("filtrodos");
 const objFiltroUno = document.getElementById("filtrouno");
 
+
 document.getElementById("filtrouno").addEventListener("change", addPropFiltro2);
-//document.getElementById("btnbuscar").addEventListener("click",filtrar);
+document.getElementById("btnbuscar").addEventListener("click",filtrar);
 
 var propertyFiltro1= Object.keys(data.pokemon[0]) //recuperamos propiedades
      
@@ -77,7 +78,7 @@ function addPropFiltro2() { //En esta funciòn llenamos el filtro1 con las propi
     }
    }
   }
-  console.log(arrayProp);
+ 
   let subcategoria= arrayProp.filter((item, index)=>{
     
     return arrayProp.indexOf(item)===index;
@@ -100,6 +101,11 @@ function addPropFiltro2() { //En esta funciòn llenamos el filtro1 con las propi
     objFiltroDos.add(option);
     
   }
+
+}
+
+function filtrar() {
+  const objInfoFil = filterData(data, objFiltroUno.value, objFiltroDos.value)
 
 }
   

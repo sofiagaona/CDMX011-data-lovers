@@ -1,10 +1,29 @@
 
-export const filterData = (data, condition) => {
+export const filterData = (data, filtroUno, filtroDos) => {
+
  
-  //var filterByCondition = data.filter(filtro)
+ 
+
+  for (let i=0; i<=data.pokemon.length -1; i++){
+  
+    const filterObject = (data, filtroUno, filtroDos) => 
+   Object.keys(data.pokemon).reduce((acc, val) => 
+   (obj[val][filter] === filterValue ? acc : {
+       ...acc,
+       [val]: obj[val]
+   }                                        
+), {});  
+
+      if ((data.pokemon[i][filtroUno][0]==filtroDos)||(data.pokemon[i][filtroUno][1]==filtroDos)){
+        console.log(data.pokemon[i].name);
+      }
+    
+      let objDataFilt= data.pokemon[i][filtroUno];
+  }
+   
 
   //var descriptionPok= data.pokemon.find(pokemon => pokemon.name === "charizard");
-  return data
+  return objDataFilt
 };
 
 
