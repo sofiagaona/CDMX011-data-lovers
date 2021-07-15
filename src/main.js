@@ -59,7 +59,7 @@ function addPropFiltro2() { //En esta funciòn llenamos el filtro1 con las propi
   let arrayProp=[];
   
   for (let i=0; i<=data.pokemon.length-1; i++){
-   
+    console.log(typeof data.pokemon[i][optionFiltro1]);
     if(typeof data.pokemon[i][optionFiltro1] == "string"){
       
       tipo = Object.values(data.pokemon[i][optionFiltro1]);
@@ -73,7 +73,7 @@ function addPropFiltro2() { //En esta funciòn llenamos el filtro1 con las propi
       
       for(let j=0; j<=data.pokemon[i][optionFiltro1].length-1;j++){
         tipoArray="";
-        
+        console.log(data.pokemon[i]["name"]);
         if(typeof data.pokemon[i][optionFiltro1][j] == "object"){
         
           tipo = data.pokemon[i][optionFiltro1];
@@ -105,8 +105,9 @@ function addPropFiltro2() { //En esta funciòn llenamos el filtro1 con las propi
     return arrayProp.indexOf(item)===index;
   });
   
+  
   subcategoria.sort();
-  console.log(subcategoria);
+  
   
   document.getElementById("filtrodos").innerHTML="";
   for (let value in subcategoria) {
@@ -200,10 +201,120 @@ function traductor(palabra){
     break;
     case "water": return "Agua"
     break;
-    case "karate chop": return "Golpe Carateca"
+    case "karate chop": return "Golpe Karateca"
     break;
-    case "acid": return "Ataque Asido"
+    case "air slash": return "Barra de Aire"
     break;
+    case "astonish": return "Asombro"
+    break;
+    case "bite": return "Mordida"
+    break;
+    case "bubble": return "Ataque Burbujas"
+    break;
+    case "bug bite": return "Mordida de Insecto"
+    break;
+    case "bullet seed": return "Semilladora"
+    break;
+    case "charge beam": return "Rayo Carga"
+    break;
+    case "confusion": return "Confucion"
+    break;
+    case "counter": return "Golpe Contraataque"
+    break;
+    case "cut": return "Cortar"
+    break;
+    case "dragon breath": return "Drago Aliento"
+    break;
+    case "dragon tail": return "Cola de Dragon"
+    break;
+    case "ember": return "Ascuas"
+    break;
+    case "extrasensory": return "Paranormal"
+    break;
+    case "feint attack": return "Finta"
+    break;
+    case "fire fang": return "Colmillo Igneo"
+    break;
+    case "fire spin": return "Gira Fuego"
+    break;
+    case "frost breath": return "Aliento Gelido"
+    break;
+    case "fury cutter": return "Corte Furia"
+    break;
+    case "hex": return "Infortunio"
+    break;
+    case "ice shard": return "Canto Helado"
+    break;
+    case "infestation": return "Acoso"
+    break;
+    case "iron tail": return "Cola Acero"
+    break;
+    case "lick": return "Lamer"
+    break;
+    case "low kick": return "Patada Baja"
+    break;
+    case "metal claw": return "Garra Metal"
+    break;
+    case "mud shot": return "Disparo Lodo"
+    break;
+    case "mud slap": return "Bofeton Lodo"
+    break;
+    case "peck": return "Picotazo"
+    break;
+    case "poison jab": return "Pulla Nosiba"
+    break;
+    case "poison sting": return "Picotazo Venenoso"
+    break;
+    case "pound": return "destructor"
+    break;
+    case "psycho cut": return "Psico Corte"
+    break;
+    case "quick attack": return "Ataque Rapido"
+    break;
+    case "razor leaf": return "Hoja Afilada"
+    break;
+    case "rock smash": return "Golpe Roca"
+    break;
+    case "rock throw": return "Lanza Rocas"
+    break;
+    case "scratch": return "Arañaso"
+    break;
+    case "shadow claw": return "Garra Umbria"
+    break;
+    case "snarl": return "Alarido"
+    break;
+    case "spark": return "Chispa"
+    break;
+    case "splash": return "Salpicado"
+    break;
+    case "steel wing": return "Ala de Acero"
+    break;
+    case "struggle bug": return "Estoisismo"
+    break;
+    case "sucker punch": return "Golpe Bajo"
+    break;
+    case "tackle": return "Placaje"
+    break;
+    case "thunder shock": return "Impac Trueno"
+    break;
+    case "vine whip": return "Latigo Sepa"
+    break;
+    case "volt switch": return "Voltio Cambio"
+    break;
+    case "water gun": return "Pistola de AGua"
+    break;
+    case "wing attack": return "Ataque Ala"
+    break;
+    case "zen headbutt": return "Cabezaso"
+    break; 
+    case "acid": return "Ataque Acido"
+    break; 
+    case "bullet punch": return "Puño Bala"
+    break; 
+    case "hidden power": return "Poder Oculto"
+    break; 
+    case "powder snow": return "Nieve Polvo"
+    break; 
     default: return palabra + " Sin Traducir"
    
   }

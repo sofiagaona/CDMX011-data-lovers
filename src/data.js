@@ -4,9 +4,20 @@ export const filterData = (data, filtroUno, filtroDos) => {
   const objDataFilt =  data.pokemon.filter(function(data) {
     if(typeof data[filtroUno] == "object"){
       for(let i=0; i<=data[filtroUno].length-1; i++){
-        if(data[filtroUno][i] == filtroDos){
-          return true
+        
+        
+        if(typeof data[filtroUno][i] == "object"){
+          if(data[filtroUno][i]["name"] == filtroDos){
+            return true
+          }
+          
         }
+        else{
+          if(data[filtroUno][i] == filtroDos){
+            return true
+          }
+        }
+
       }
     }
     else{
@@ -14,7 +25,7 @@ export const filterData = (data, filtroUno, filtroDos) => {
     }
   });
 
-  console.log(objDataFilt);
+  console.log(filtroUno + " " + filtroDos);
  
  /*
   for (let i=0; i<=data.pokemon.length -1; i++){
