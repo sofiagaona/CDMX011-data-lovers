@@ -59,7 +59,6 @@ function addPropFiltro2() { //En esta funciòn llenamos el filtro1 con las propi
   let arrayProp=[];
   
   for (let i=0; i<=data.pokemon.length-1; i++){
-    console.log(typeof data.pokemon[i][optionFiltro1]);
     if(typeof data.pokemon[i][optionFiltro1] == "string"){
       
       tipo = Object.values(data.pokemon[i][optionFiltro1]);
@@ -70,10 +69,22 @@ function addPropFiltro2() { //En esta funciòn llenamos el filtro1 con las propi
       arrayProp.push(tipoArray);
     }
     else{
-      
+
+
+      if(typeof data.pokemon[i][optionFiltro1].length == "undefined"){
+        tipo = Object.keys(data.pokemon[i][optionFiltro1]);
+          for(let k=0; k<=tipo.length-1;k++){
+            arrayProp.push(tipo[k]);
+          }
+
+      }
+
+
+
+
       for(let j=0; j<=data.pokemon[i][optionFiltro1].length-1;j++){
         tipoArray="";
-        console.log(data.pokemon[i]["name"]);
+        
         if(typeof data.pokemon[i][optionFiltro1][j] == "object"){
         
           tipo = data.pokemon[i][optionFiltro1];

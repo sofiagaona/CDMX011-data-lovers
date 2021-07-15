@@ -3,6 +3,18 @@ export const filterData = (data, filtroUno, filtroDos) => {
 
   const objDataFilt =  data.pokemon.filter(function(data) {
     if(typeof data[filtroUno] == "object"){
+
+      console.log(typeof data[filtroUno].length);
+      if(typeof data[filtroUno].length == "undefined"){ 
+        console.log(parseInt(data[filtroUno][filtroDos]));
+        console.log(parseInt(document.getElementById("nivel").value));
+        
+        if(parseInt(data[filtroUno][filtroDos]) >= parseInt(document.getElementById("nivel").value)){
+          return true
+        }
+      }
+
+
       for(let i=0; i<=data[filtroUno].length-1; i++){
         
         
