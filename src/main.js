@@ -24,16 +24,16 @@ propertyFiltro1 = propertyFiltro1.filter(function(exc) {
 });
 
      addOptions(propertyFiltro1) //llena el selector del filtro 1
-     addListPok(data) //Muestra todos los pokemons en pantalla
+     //addListPok(data) //Muestra todos los pokemons en pantalla
 
 
 
-function addListPok(data){ // En esta funcion llenamos la lista para mostrar todos lo pokemon en pantalla
+/*function addListPok(data){ // En esta funcion llenamos la lista para mostrar todos lo pokemon en pantalla
   var listPok = data.pokemon.map(function(pok){
   return '<li><figure><a href=pokemon.html><img src='+pok.img+'></a><figure> '+pok.name+'</li>'
 })
 document.getElementById("listPok").innerHTML = listPok.join(""); //con el metodo join quitamos , de la lsta para que no aparezca en pantalla la coma despues de cada imag
-}
+}*/
 
 
 function addOptions(prop) { //En esta funciòn llenamos el filtro1 con las propieades excepto img y about
@@ -58,7 +58,7 @@ function addPropFiltro2() { //En esta funciòn llenamos el filtro1 con las propi
   
   for (let i=0; i<=data.pokemon.length-1; i++){
    
-    if(optionFiltro1=== "name"){
+    if(typeof data.pokemon[i][optionFiltro1] == "string"){
       
       tipo = Object.values(data.pokemon[i][optionFiltro1]);
       tipoArray="";
@@ -68,35 +68,61 @@ function addPropFiltro2() { //En esta funciòn llenamos el filtro1 con las propi
       arrayProp.push(tipoArray);
     }
     else{
-    for(let j=0; j<=data.pokemon[i][optionFiltro1].length-1;j++){
-      tipo = Object.values(data.pokemon[i][optionFiltro1][j]);
       tipoArray="";
-      for(let k=0; k<=tipo.length-1;k++){
-        tipoArray=tipoArray+tipo[k];
+      for(let j=0; j<=data.pokemon[i][optionFiltro1].length-1;j++){
+        console.log(j);
+        if(typeof data.pokemon[i][optionFiltro1][j] == "object"){
+        
+          tipo = data.pokemon[i][optionFiltro1];
+          tipo = Object.values(data.pokemon[i][optionFiltro1][j]);
+          tipo = tipo[0];
+          for(let k=0; k<=tipo.length-1;k++){
+            tipoArray=tipoArray+tipo[k];
+          }
+          
+        }
+        else{
+      
+          tipo = Object.values(data.pokemon[i][optionFiltro1][j]);
+          
+          for(let k=0; k<=tipo.length-1;k++){
+            tipoArray=tipoArray+tipo[k];
+          }
+        }
+
+        arrayProp.push(tipoArray);
       }
-      arrayProp.push(tipoArray);
     }
-   }
   }
  
+  console.log(arrayProp);
   let subcategoria= arrayProp.filter((item, index)=>{
     
     return arrayProp.indexOf(item)===index;
-  })
+  });
   
   subcategoria.sort();
+  console.log(subcategoria);
   
   document.getElementById("filtrodos").innerHTML="";
   for (let value in subcategoria) {
     let option = document.createElement("option");
+    console.log(value + " "+ typeof data.pokemon[value]);
     
-    if (optionFiltro1==="name"){
+    if ((typeof data.pokemon[value][optionFiltro1]) === "string"){
+
       option.text = subcategoria[value];
       option.value=subcategoria[value];
     }
     else{
-    option.text = traductor(subcategoria[value]);
-    option.value=subcategoria[value];
+      
+       
+        //let subsubfiltro = subcategoria.filter(function(filter){
+        //  return filter[value] == "name"
+        //});
+        option.text = traductor(subcategoria[value]);
+        option.value=subcategoria[value];
+      
     }
     objFiltroDos.add(option);
     
@@ -106,6 +132,10 @@ function addPropFiltro2() { //En esta funciòn llenamos el filtro1 con las propi
 
 function filtrar() {
   const objInfoFil = filterData(data, objFiltroUno.value, objFiltroDos.value)
+  var listPok = objInfoFil.map(function(pok){
+    return '<li><figure><a href=pokemon.html><img src='+pok.img+'></a><figure> '+pok.name+'</li>' 
+  })
+  document.getElementById("listPok").innerHTML = listPok.join("");
 
 }
   
@@ -165,6 +195,8 @@ function traductor(palabra){
     case "steel": return "Metal"
     break;
     case "water": return "Agua"
+    break;
+    case "wakarate chopter": return "Golpe Carateca"
     break;
     default: return "no definido"
    

@@ -1,28 +1,34 @@
 
 export const filterData = (data, filtroUno, filtroDos) => {
 
- 
- 
-
-  for (let i=0; i<=data.pokemon.length -1; i++){
-  
-    const filterObject = (data, filtroUno, filtroDos) => 
-   Object.keys(data.pokemon).reduce((acc, val) => 
-   (obj[val][filter] === filterValue ? acc : {
-       ...acc,
-       [val]: obj[val]
-   }                                        
-), {});  
-
-      if ((data.pokemon[i][filtroUno][0]==filtroDos)||(data.pokemon[i][filtroUno][1]==filtroDos)){
-        console.log(data.pokemon[i].name);
+  const objDataFilt =  data.pokemon.filter(function(data) {
+    if(typeof data[filtroUno] == "object"){
+      for(let i=0; i<=data[filtroUno].length-1; i++){
+        if(data[filtroUno][i] == filtroDos){
+          return true
+        }
       }
+    }
+    else{
+      return data[filtroUno] == filtroDos
+    }
+  });
+
+  console.log(objDataFilt);
+ 
+ /*
+  for (let i=0; i<=data.pokemon.length -1; i++){
+
+    if ((data.pokemon[i][filtroUno][0]==filtroDos)||(data.pokemon[i][filtroUno][1]==filtroDos)){
+      console.log(data.pokemon[i].name);
+    }
     
-      let objDataFilt= data.pokemon[i][filtroUno];
+    et objDataFilt= data.pokemon[i][filtroUno];
   }
    
+  var descriptionPok= data.pokemon.find(pokemon => pokemon.name === "charizard");
+  */
 
-  //var descriptionPok= data.pokemon.find(pokemon => pokemon.name === "charizard");
   return objDataFilt
 };
 
