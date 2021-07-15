@@ -68,9 +68,10 @@ function addPropFiltro2() { //En esta funciòn llenamos el filtro1 con las propi
       arrayProp.push(tipoArray);
     }
     else{
-      tipoArray="";
+      
       for(let j=0; j<=data.pokemon[i][optionFiltro1].length-1;j++){
-        console.log(j);
+        tipoArray="";
+        
         if(typeof data.pokemon[i][optionFiltro1][j] == "object"){
         
           tipo = data.pokemon[i][optionFiltro1];
@@ -88,6 +89,7 @@ function addPropFiltro2() { //En esta funciòn llenamos el filtro1 con las propi
           for(let k=0; k<=tipo.length-1;k++){
             tipoArray=tipoArray+tipo[k];
           }
+         
         }
 
         arrayProp.push(tipoArray);
@@ -95,7 +97,7 @@ function addPropFiltro2() { //En esta funciòn llenamos el filtro1 con las propi
     }
   }
  
-  console.log(arrayProp);
+  
   let subcategoria= arrayProp.filter((item, index)=>{
     
     return arrayProp.indexOf(item)===index;
@@ -107,7 +109,7 @@ function addPropFiltro2() { //En esta funciòn llenamos el filtro1 con las propi
   document.getElementById("filtrodos").innerHTML="";
   for (let value in subcategoria) {
     let option = document.createElement("option");
-    console.log(value + " "+ typeof data.pokemon[value]);
+    
     
     if ((typeof data.pokemon[value][optionFiltro1]) === "string"){
 
@@ -196,9 +198,11 @@ function traductor(palabra){
     break;
     case "water": return "Agua"
     break;
-    case "wakarate chopter": return "Golpe Carateca"
+    case "karate chop": return "Golpe Carateca"
     break;
-    default: return "no definido"
+    case "acid": return "Ataque Asido"
+    break;
+    default: return palabra + " Sin Traducir"
    
   }
 }
