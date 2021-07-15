@@ -34,7 +34,6 @@ export const filterData = (data, filtroUno, filtroDos) => {
     }
   });
 
-  console.log(filtroUno + " " + filtroDos);
  
  /*
   for (let i=0; i<=data.pokemon.length -1; i++){

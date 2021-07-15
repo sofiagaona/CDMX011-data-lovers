@@ -9,9 +9,12 @@ const objFiltroDos = document.getElementById("filtrodos");
 const objFiltroUno = document.getElementById("filtrouno");
 
 
+
 document.getElementById("filtrouno").addEventListener("change", addPropFiltro2);
 document.getElementById("btnbuscar").addEventListener("click",filtrar);
 document.getElementById("filtrodos").addEventListener("change", filtrar);
+
+
 
 var propertyFiltro1= Object.keys(data.pokemon[0]) //recuperamos propiedades
 objFiltroUno.value = 6;
@@ -149,6 +152,7 @@ function addPropFiltro2() { //En esta funciòn llenamos el filtro1 con las propi
 function filtrar() {
   const objInfoFil = filterData(data, objFiltroUno.value, objFiltroDos.value)
   var listPok = objInfoFil.map(function(pok){
+
     return '<li><figure><a href=pokemon.html><img src='+pok.img+'></a><figure> '+pok.name+'</li>' 
   })
   document.getElementById("listPok").innerHTML = listPok.join("");
