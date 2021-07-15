@@ -11,9 +11,11 @@ const objFiltroUno = document.getElementById("filtrouno");
 
 document.getElementById("filtrouno").addEventListener("change", addPropFiltro2);
 document.getElementById("btnbuscar").addEventListener("click",filtrar);
+document.getElementById("filtrodos").addEventListener("change", filtrar);
 
 var propertyFiltro1= Object.keys(data.pokemon[0]) //recuperamos propiedades
-     
+objFiltroUno.value = 6;
+//addPropFiltro2();     
 propertyFiltro1 = propertyFiltro1.filter(function(exc) {
   if(exc != 'size' && exc != 'img' && exc != 'weaknesses' && exc != 'about'&& exc != 'generation' && exc != 'pokemon-rarity' && exc != 'encounter' && exc != 'spawn-chance' && exc  != 'buddy-distance-km'){
     return true

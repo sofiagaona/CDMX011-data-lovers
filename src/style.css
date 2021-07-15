@@ -1,3 +1,9 @@
+header{
+  color:rgb(224, 168, 100);
+  background-color: blanchedalmond;
+  left: 100px;
+}
+
 div[id="panelinformacion"]{
     width: 400px;
     height: 300px;
@@ -61,12 +67,17 @@ EDIT ON
   height: 150px;
   margin-top: 10px;
   line-height: 150px;
-  color: white;
+  color: white;∫
   font-weight: bold;
   font-size: 3em;
   text-align: center;
 }
 
 body{
-  background-image: url("https://www.wallpapertip.com/wmimgs/81-813546_rotom-pokedex-background.jpg");
+  background: url(img/BackGround_gris0.png);
+  background-size: contain;
+  height: 100px;
+  
+  
+
 }
