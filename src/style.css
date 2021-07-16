@@ -1,83 +1,255 @@
-header{
-  color:rgb(224, 168, 100);
-  background-color: blanchedalmond;
-  left: 100px;
+*{
+  padding: 0;
+  margin: 0;
+  }
+  body{
+  font-size: 13px;
+  line-height: 150%;
+  background: var(--Light-grayish-blue);
+  font-family: 'Cabin', sans-serif;
+ 
+  }
+  :root{
+    /*colors primary*/
+  
+    --Very-dark-grayish-blue: hsl(217, 19%, 35%);
+    --White: hsl(0, 0%, 100%);
+    --Light-gray: hsl(0, 0%, 81%);
+    --Light-grayish-blue: hsl(210, 46%, 95%);
+  
+  }
+
+.header{
+ 
+  background-image: url("https://fontmeme.com/permalink/210716/208ebbbf3233109c35c36e8f236fa2f0.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: red;
+  width: 100%;
+  height: 30vh;
+  position: relative;
+  z-index: -1;
+ 
+  
+
 }
 
-div[id="panelinformacion"]{
-    width: 400px;
-    height: 300px;
-    border: black 1px solid;
-    position: absolute;
-    top: 140px; left: 400px;
-    
-}
 
-HTML CSSResult Skip Results Iframe
-EDIT ON
+h1{
+  font-size: 2em;
+  margin: 1.5em;
+  color: var(--Very-dark-grayish-blue);
+  font-weight: 700;
+  text-align: center;
+}
 
 .flex-container {
-  /* We first create a flex layout context */
+  
+  display: grid;
+  max-inline-size: 1440px;
+  block-size: 100vh;
+  margin: 0 auto;
+  grid-gap: 1.5em;
+  grid-template-areas: "sec-1 sec-2";
+  grid-template-columns: 18em 1fr;
+}
+
+  .imgFiltro img{
+    margin-left: 1em;
+    margin-top: 1em;
+
+  }
+  select{
+    margin: 0em 1em 0 1em;
+    font-size: 1em;
+    height: 2em;
+    padding: 5px;
+    width: 15em;
+  }
+  
+
+  .input{
+    margin: 1em 1em 0 1em;
+    font-size: 1em;
+    height: 2em;
+    width: 15em;
+ }
+ .bttn{
+  margin: 1em 1em 0 1em;
+  font-size: 1em;
+  height: 2em;
+  width: 15em;
+}
+ 
+
+.boxFilter{
+  grid-area: sec-1;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  display: inline;
+  }
+
+.boxPok{
+  grid-area: sec-2;
+  grid-column-start: 2;
+  grid-column-end: 3;
   display: flex;
-   max-inline-size: 1440px;
-  /* Then we define the flow direction 
-     and if we allow the items to wrap 
-   * Remember this is the same as:
-   * flex-direction: row;
-   * flex-wrap: wrap;
-   */
+  margin: 0 auto;
   flex-flow: row wrap;
-  
-  /* Then we define how is distributed the remaining space */
   justify-content: space-around;
-  
   padding: 0;
   margin: 0;
   list-style: none;
+  background:var(--Light-gray);
+  width: 100%;
+  height: 100%;
  
+
 }
 
-.flex-container > li{
+
+
+.boxPok > li{
   list-style: none;
-  margin-left: 3em;
-  margin-top: 3em;
-  display: inline-block;
+  margin: 3em;
+  
+  display:block;
   font-size: 1em;
   
   
+  
 }
-.flex-container > li > figure{
+ .boxTarjeta{
+   display: flex;
+   flex-flow: row wrap;
+   justify-content: center;
+   align-items: center;
+   
+  
+  
+   
+  
+  
+
+}
+
+.boxImg{
+
+ 
+  display:flex;
+  background: darkgreen;
+  
+  height: 200px;
+  align-items: center;
+  justify-content: center;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-bottom: 1em;
+  
+
+  
+}
+
+
+.boxInf{
+  
   display: block;
-  background-color:gray;
-  border: solid .5em rgba(128, 128, 128, 0.171);
-  width: 10em;
-  height: 10em;
+  background: darkmagenta;
+  width: 220px;
+  height: 200px;
+  padding-left: 1em;
+  padding-bottom: 1em;
+  }
+
+  .texto{
+
+    font-size: 1.2em;
+    padding-right: .2em;
+  }
+  p{
+    font-size: 1.1em;
+  }
+
+  .namePok{
+   font-size: 2em;
+   text-align: center;
+   text-transform:capitalize;
+   padding-top: .5em;
+   padding-bottom: .5em;
+   
+  }
+
+/*.boxImg > li > figure {
+  
+  display: block;
+  background-color:var(--Light-grayish-blue);
+  border: solid .5em var(--Light-grayish-blue);
+  width: 15em;
+  height: 15em;
   border-radius: .5em;
 
 }
 
 
 
+.boxImg> li > figure >img{
+height: 100px;
+width: 100px;
+text-align: center;
+}*/
+
+@media only screen and (max-width:749px)  {
+   
+  body{
+    background: darkcyan;
+  }
+  .header{
+    
+    
+    width: 100%;
+    height: 30vh;
+    position: relative;
+    z-index: -1;
+   }
+
+  .flex-container
+  {
+    flex-direction: column;
+    max-inline-size: 375px;
+    height: auto;
+    block-size: auto;
+    grid-gap: 1em;
+    display: grid;
+    grid-template-columns: auto;
+    position: relative;
+    text-align:left;
+    background: darkcyan;
+  }
+ 
+
+  .boxFilter
+  {
+
+    display: block;
+      height: auto;
+      grid-column: 1 / 1;
+      grid-row: 1;
+      margin-right: 2em;
 
 
-.flex-item {
-  background: tomato;
-  padding: 5px;
-  width: 200px;
-  height: 150px;
-  margin-top: 10px;
-  line-height: 150px;
-  color: white;
-  font-weight: bold;
-  font-size: 3em;
-  text-align: center;
-}
+  }
+  .boxPok{
+    display: block;
+      height:auto;
 
-body{
-  background: url(img/BackGround_gris0.png);
-  background-size: contain;
-  height: 100px;
-  
-  
+      grid-column: 1 / 1;
+      grid-row: 2;
+      margin-left: 2em;
+      margin-right: 2em;
+      margin-top: 0em;
+     
+
+  }
+
 
 }

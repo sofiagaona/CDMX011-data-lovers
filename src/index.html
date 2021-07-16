@@ -2,33 +2,49 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Cabin&display=swap" rel="stylesheet">
     <title>POKEdex</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header>POKEdex<header>
-    <h1>De que poquemon quieres saber informacion?</h1>
+    <header class="header"></header>
+
+    <main>
+     <h1>De que poquemon quieres saber informacion?</h1>
+      <div class="flex-container">
+          
+            <section class="boxFilter"> <!--Seccion de Filtros-->
+              <p class="imgFiltro"><img src="https://fontmeme.com/permalink/210716/4bfdd3146e2d4c6fd30bd04ba3c0d30f.png" alt="fuente-pokmon" border="0"></p>
+              <select  name="filtrouno" id="filtrouno"></select> <!--Se llena el selct desde js filtro1-->
+              <!--<input id=txbxnumeropokemon type="number"></p>-->
+              <p class="imgFiltro"><img src="https://fontmeme.com/permalink/210716/14b56b314aff771cd8bfffe2981910ba.png" alt="fuente-pokmon" border="0"></p>
+              <select name="filtrodos" id="filtrodos"></select>
+              <input class="input" id="nivel" value="0"></input>
+              <input class="bttn" id="btnbuscar" type="button" value="Buscar">
+            </section> 
+          
+          
+            <section >
+              <div class="boxPok" id='listPok'>
+               
+               
+                
+                
+              </div>
+            </section> <!--Se crea la lista de imag de cada pokemon desde js-->
+         
+      </div>
+
 
     
 
-    <form id="formentradadedatos">
-      <p>Menu de Filtrado</p>
+    
       
 
-      <section> <!--Seccion de Filtros-->
-      <select  name="filtrouno" id="filtrouno"></select> <!--Se llena el selct desde js filtro1-->
-      
-      <input id=txbxnumeropokemon type="number"></p>
-
-      <select name="filtrodos" id="filtrodos"></select>
-      <input id="nivel" value="0"></input>
-      
       
 
-      <input id="btnbuscar" type="button" value="Buscar">
-      </section> 
-
-      <section><div id='listPok'  class="flex-container"></div></section> <!--Se crea la lista de imag de cada pokemon desde js-->
+      
         
       
 
@@ -37,7 +53,7 @@
     
 
    
-
+    </main>
 
     <div id="root"></div>
     <script src="main.js" type="module"></script>
