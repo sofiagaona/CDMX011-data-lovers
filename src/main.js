@@ -60,6 +60,10 @@ function addPropFiltro2() { //En esta funciòn llenamos el filtro1 con las propi
   let tipo;
   let tipoArray="";
   let arrayProp=[];
+
+  
+  fnBoxPuntBase(optionFiltro1);
+  
   
   for (let i=0; i<=data.pokemon.length-1; i++){
     if(typeof data.pokemon[i][optionFiltro1] == "string"){
@@ -348,7 +352,18 @@ let palabratemp="";
  return  pasarpalabra(palabra)
 }
  
+function fnBoxPuntBase(optionFiltro1){
+    
+  if (optionFiltro1==="stats"){
+    
+    document.getElementById("puntoBase").classList="visible";
 
+  }
+
+  else{
+    document.getElementById("puntoBase").classList="invisible";
+  }
+}
 
 
 

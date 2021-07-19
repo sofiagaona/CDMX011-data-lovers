@@ -4,9 +4,10 @@
   }
   body{
   font-size: 13px;
-  line-height: 150%;
   background: var(--Light-grayish-blue);
   font-family: 'Cabin', sans-serif;
+
+  
  
   }
   :root{
@@ -20,19 +21,18 @@
   }
 
 .header{
- 
+  
   background-image: url("https://fontmeme.com/permalink/210716/208ebbbf3233109c35c36e8f236fa2f0.png");
   background-repeat: no-repeat;
   background-position: center;
   background-color: red;
+ 
   width: 100%;
   height: 30vh;
   position: relative;
   z-index: -1;
- 
-  
+ }
 
-}
 
 
 h1{
@@ -52,11 +52,14 @@ h1{
   grid-gap: 1.5em;
   grid-template-areas: "sec-1 sec-2";
   grid-template-columns: 18em 1fr;
+  
 }
 
   .imgFiltro img{
     margin-left: 1em;
     margin-top: 1em;
+    size: contain;
+    
 
   }
   select{
@@ -72,13 +75,14 @@ h1{
     margin: 1em 1em 0 1em;
     font-size: 1em;
     height: 2em;
-    width: 15em;
+    width: 5em;
  }
  .bttn{
-  margin: 1em 1em 0 1em;
+  margin: 1em 1em 0 0em;
   font-size: 1em;
   height: 2em;
-  width: 15em;
+  width: 5em;
+ 
 }
  
 
@@ -87,6 +91,7 @@ h1{
   grid-column-start: 1;
   grid-column-end: 2;
   display: inline;
+  
   }
 
 .boxPok{
@@ -97,47 +102,50 @@ h1{
   margin: 0 auto;
   flex-flow: row wrap;
   justify-content: space-around;
-  padding: 0;
-  margin: 0;
   list-style: none;
-  background:var(--Light-gray);
-  width: 100%;
+  background-size:25%;
   height: 100%;
- 
-
+  margin-right: 4em;
+  background-image:url(img/BackGround_gris0.png);
+  opacity: .5;
+  
+  
 }
+
+
 
 
 
 .boxPok > li{
   list-style: none;
   margin: 3em;
-  
   display:block;
   font-size: 1em;
-  
-  
+  opacity: 1;
+ 
+ 
   
 }
  .boxTarjeta{
    display: flex;
-   flex-flow: row wrap;
+   flex-flow: row nowrap;
    justify-content: center;
    align-items: center;
-   
   
-  
-   
-  
-  
+}
 
+.boxMenuFilt{
+  display: flex;
+  flex-flow: column wrap;
+  margin-left: 2em;
+ 
 }
 
 .boxImg{
 
  
   display:flex;
-  background: darkgreen;
+  background:rgb(204, 204, 125);
   
   height: 200px;
   align-items: center;
@@ -154,7 +162,7 @@ h1{
 .boxInf{
   
   display: block;
-  background: darkmagenta;
+  background: rgb(218, 218, 179);
   width: 220px;
   height: 200px;
   padding-left: 1em;
@@ -165,9 +173,11 @@ h1{
 
     font-size: 1.2em;
     padding-right: .2em;
+    color: grey;
   }
   p{
     font-size: 1.1em;
+    color: grey;
   }
 
   .namePok{
@@ -177,6 +187,32 @@ h1{
    padding-top: .5em;
    padding-bottom: .5em;
    
+  }
+  .visible{
+    display: block;
+    margin: 1em 1em 0 1em;
+    font-size: 1em;
+    
+   
+    margin-top: 2em;
+    
+  }
+
+ 
+  .invisible{
+    display: none;
+  }
+
+  .txtLabel{
+   
+    font-size: 1em;
+    margin-top: 1em;
+  }
+  #nivel{
+    width: 3em;
+    margin-left: .2em;
+    margin-right: .2em;
+    
   }
 
 /*.boxImg > li > figure {
@@ -198,58 +234,76 @@ width: 100px;
 text-align: center;
 }*/
 
-@media only screen and (max-width:749px)  {
+@media only screen and (max-width:749px) and  (min-width:360px){
    
-  body{
-    background: darkcyan;
-  }
-  .header{
-    
-    
-    width: 100%;
-    height: 30vh;
-    position: relative;
-    z-index: -1;
-   }
-
-  .flex-container
-  {
-    flex-direction: column;
-    max-inline-size: 375px;
-    height: auto;
-    block-size: auto;
-    grid-gap: 1em;
-    display: grid;
-    grid-template-columns: auto;
-    position: relative;
-    text-align:left;
-    background: darkcyan;
-  }
  
+  
 
-  .boxFilter
-  {
+   h1{
+    font-size: 1.5em;
+    }
 
-    display: block;
+    .header{
+      background-size: contain;
+    }
+  
+    .flex-container {
+  
+      
+      flex-direction: column;
+      height: auto;
+      block-size: auto;
+      grid-gap: 1em;
+      display: inline;
+      
+      
+      
+      
+    }
+ 
+    .boxFilter{
       height: auto;
       grid-column: 1 / 1;
-      grid-row: 1;
-      margin-right: 2em;
-
-
-  }
-  .boxPok{
-    display: block;
-      height:auto;
-
-      grid-column: 1 / 1;
-      grid-row: 2;
-      margin-left: 2em;
-      margin-right: 2em;
-      margin-top: 0em;
+    }
+   
+    
+    .boxPok{
      
+      height: auto;
+      grid-column: 1 / 1;
+      margin-top: 2em;
+      margin-right: 0em;
+     
+    
+      
+    }
 
-  }
+    .boxInf{
+  
+      display: block;
+      width: 150px;
+      height: 200px;
+      padding-left: .5em;
+      padding-bottom: 1em;
+      }
+    
+    
+
+      .boxPok > li{
+         margin: 1em;
+        
+      }
+
+      .boxMenuFilt{
+        justify-content: center;
+        align-items: center;
+      }
+
+      
+
+    
+
+    
 
 
 }
