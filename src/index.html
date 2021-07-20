@@ -17,8 +17,9 @@
         <label >Buscar por Nombre/Número:</label>
         <input   id="FindNomNumber"></input>
        </p> 
-        <p class="MagDer">
+        <p id="MarDerRep" class="MagDer">
           <label >Ordenar Albafabaticamente/Núm:</label>
+          <br>
           <select id="AlfNum">
             <option>Alfabetico</option>
             <option>Número</option>
@@ -49,11 +50,27 @@
                 </div>
               </div>
            </section> 
-          
+             <div id="OrdRep">
+              <p class="MagDerRes">
+                <label >Ordenar Albafabaticamente/Núm:</label>
+                <br>
+                <select id="AlfNum">
+                  <option>Alfabetico</option>
+                  <option>Número</option>
+                </select>
+                <br>
+                <select id="OrdAscDesc">
+                  <option>Ascendente</option>
+                  <option>Descendente</option>
+                </select>
+              </p><br>
+
+             </div>
           
             <section >
-              <div class="boxPok" id='listPok'></div>
-            </section> <!--Se crea la lista de imag de cada pokemon desde js-->
+             
+              <div class="boxPok" id='listPok'><div>
+           </section> <!--Se crea la lista de imag de cada pokemon desde js-->
          
       </div>
 

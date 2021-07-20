@@ -7,12 +7,18 @@ import {filterData} from './data.js';
 
 const objFiltroDos = document.getElementById("filtrodos");
 const objFiltroUno = document.getElementById("filtrouno");
+const objfiltroName=document.getElementById("FindNomNumber");
+const objFilAlfabNum=document.getElementById("AlfNum");
+const objFilAscDsc=document.getElementById("OrdAscDesc");
 
 
 
 document.getElementById("filtrouno").addEventListener("change", addPropFiltro2);
 document.getElementById("btnbuscar").addEventListener("click",filtrar);
 document.getElementById("filtrodos").addEventListener("change", filtrar);
+objfiltroName.addEventListener("keyup", fnfilNamNum);
+document.getElementById("AlfNum").addEventListener("change",fnFilAlfNum);
+
 
 
 
@@ -157,8 +163,9 @@ function addPropFiltro2() { //En esta funciòn llenamos el filtro1 con las propi
 
 function filtrar() {
   const objInfoFil = filterData(data, objFiltroUno.value, objFiltroDos.value)
+  
   var listPok = objInfoFil.map(function(pok){
-    console.log(typeof pok.type);
+    
     return '<li> <div class="boxTarjeta"><div class="boxImg"><figure><a href=pokemon.html><img src='+pok.img+'></a></figure></div><div class="boxInf"><p class="namePok">'+pok.name+'</p><p><span class="texto">Tipo:</span>'+traductor(pok.type)+' </p><p><span class="texto">Fuerte Contra:</span> '+traductor(pok.resistant)+'</p> <p> <span class="texto">Debil Contra:</span> '+traductor(pok.weaknesses)+'</p><p><span class="texto">Ataque Base:</span> '+pok.stats['base-attack']+'</p><p> <span class="texto">Defensa Base:</span> '+pok.stats['base-defense']+'</p></div></div></li>' 
   })
   document.getElementById("listPok").innerHTML = listPok.join("");
@@ -176,6 +183,11 @@ let palabratemp="";
    return palabratemp
  }
   
+
+
+
+
+
  function pasarpalabra(palabra){
   switch (palabra){
     case "name": return "Nombre"
@@ -366,6 +378,19 @@ function fnBoxPuntBase(optionFiltro1){
     document.getElementById("puntoBase").classList="invisible";
   }
 }
+
+function fnfilNamNum(){
+  
+  let objInfoFil = filterData(data, "name", objfiltroName.value);
+ 
+  if (typeof objInfoFil[0]==="undefined"){
+    objInfoFil = filterData(data, "num", objfiltroName.value);
+  }
+  var listPok = objInfoFil.map(function(pok){
+    return '<li> <div class="boxTarjeta"><div class="boxImg"><figure><a href=pokemon.html><img src='+pok.img+'></a></figure></div><div class="boxInf"><p class="namePok">'+pok.name+'</p><p><span class="texto">Tipo:</span>'+traductor(pok.type)+' </p><p><span class="texto">Fuerte Contra:</span> '+traductor(pok.resistant)+'</p> <p> <span class="texto">Debil Contra:</span> '+traductor(pok.weaknesses)+'</p><p><span class="texto">Ataque Base:</span> '+pok.stats['base-attack']+'</p><p> <span class="texto">Defensa Base:</span> '+pok.stats['base-defense']+'</p></div></div></li>' 
+  })
+  document.getElementById("listPok").innerHTML = listPok.join("");
+} 
 
 
 
