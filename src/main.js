@@ -4,7 +4,7 @@ import data2 from './data/pokemon/types.js';
 import { sortData } from './data.js';
 import {filterData} from './data.js';
 
-console.log(data);
+
 const objFiltroDos = document.getElementById("filtrodos");
 const objFiltroUno = document.getElementById("filtrouno");
 
@@ -28,8 +28,10 @@ propertyFiltro1 = propertyFiltro1.filter(function(exc) {
   }
 });
 
-     addOptions(propertyFiltro1) //llena el selector del filtro 1
-     //addListPok(data) //Muestra todos los pokemons en pantalla
+     addOptions(propertyFiltro1);
+     addPropFiltro2();
+     filtrar();
+
 
 
 
@@ -353,7 +355,7 @@ let palabratemp="";
 }
  
 function fnBoxPuntBase(optionFiltro1){
-    
+   
   if (optionFiltro1==="stats"){
     
     document.getElementById("puntoBase").classList="visible";

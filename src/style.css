@@ -6,6 +6,7 @@
   font-size: 13px;
   background: var(--Light-grayish-blue);
   font-family: 'Cabin', sans-serif;
+  color: grey;
 
   
  
@@ -22,10 +23,10 @@
 
 .header{
   
-  background-image: url("https://fontmeme.com/permalink/210716/208ebbbf3233109c35c36e8f236fa2f0.png");
+  background-image: url("https://fontmeme.com/permalink/210720/ddd511b46c6d80e4c89c4d1190d8b262.png");
   background-repeat: no-repeat;
   background-position: center;
-  background-color: red;
+  background-color:rgb(51,96,166);
  
   width: 100%;
   height: 30vh;
@@ -51,12 +52,12 @@ h1{
   margin: 0 auto;
   grid-gap: 1.5em;
   grid-template-areas: "sec-1 sec-2";
-  grid-template-columns: 18em 1fr;
+  grid-template-columns: 19em 1fr;
   
 }
 
   .imgFiltro img{
-    margin-left: 1em;
+    
     margin-top: 1em;
     size: contain;
     
@@ -67,7 +68,8 @@ h1{
     font-size: 1em;
     height: 2em;
     padding: 5px;
-    width: 15em;
+    width: 13em;
+
   }
   
 
@@ -82,6 +84,11 @@ h1{
   font-size: 1em;
   height: 2em;
   width: 5em;
+  background: rgb(255, 205, 43);
+  color:rgb(51,96,166);
+  border-radius: .5em;
+  font-size: 1.1em;
+  font-weight: bold;
  
 }
  
@@ -106,8 +113,10 @@ h1{
   background-size:25%;
   height: 100%;
   margin-right: 4em;
-  background-image:url(img/BackGround_gris0.png);
-  opacity: .5;
+  background-image:linear-gradient(rgba(200, 200, 207, 0.9),rgba(82, 82, 85, 0.9)),url(img/BackGround_gris0.png);
+  z-index: -1;
+ 
+ 
   
   
 }
@@ -137,7 +146,14 @@ h1{
 .boxMenuFilt{
   display: flex;
   flex-flow: column wrap;
+  background:linear-gradient( rgb(245,61,59,.9), rgb(245,61,59,.7)) ;
+  height: 100%;
+  padding-bottom: 2em;
+  padding-top: 2em;
+  align-items: center;
   margin-left: 2em;
+  
+  
  
 }
 
@@ -147,7 +163,7 @@ h1{
   display:flex;
   background:rgb(204, 204, 125);
   
-  height: 200px;
+  height: 220px;
   align-items: center;
   justify-content: center;
   padding-left: 1em;
@@ -164,7 +180,7 @@ h1{
   display: block;
   background: rgb(218, 218, 179);
   width: 220px;
-  height: 200px;
+  height: 220px;
   padding-left: 1em;
   padding-bottom: 1em;
   }
@@ -173,11 +189,11 @@ h1{
 
     font-size: 1.2em;
     padding-right: .2em;
-    color: grey;
+    
   }
   p{
     font-size: 1.1em;
-    color: grey;
+   
   }
 
   .namePok{
@@ -190,11 +206,10 @@ h1{
   }
   .visible{
     display: block;
-    margin: 1em 1em 0 1em;
-    font-size: 1em;
-    
    
+    font-size: 1em;
     margin-top: 2em;
+   align-items: center;
     
   }
 
@@ -205,34 +220,62 @@ h1{
 
   .txtLabel{
    
-    font-size: 1em;
+    font-size: 1.2em;
     margin-top: 1em;
+    padding-left: .5em;
+    color: rgb(51,96,166);
+    font-weight: bold;
   }
   #nivel{
     width: 3em;
-    margin-left: .2em;
-    margin-right: .2em;
+    margin-left: .4em;
+    margin-right: .4em;
     
   }
 
-/*.boxImg > li > figure {
-  
-  display: block;
-  background-color:var(--Light-grayish-blue);
-  border: solid .5em var(--Light-grayish-blue);
-  width: 15em;
-  height: 15em;
-  border-radius: .5em;
+.FindNomNum{
+  font-size: 1.3em;
+ 
+  padding-left: .5em;
+  padding-right: .5em;
+  color: rgb(51,96,166);
+  font-weight: bold;
+  margin-bottom: 2em;
+ 
 
+  
+ 
+
+}
+.FindNomNum > input{
+ 
+  font-size: 1em;
+  
+  width: 10em;
+  
+}
+.FindNomNum > p >select{
+ 
+  margin: 0em 1em 0 1em;
+  font-size: .8em;
+  
+  padding: 5px;
+  width: 10em;
+  
+}
+
+.MagIzq{
+  float: left;
+}
+
+.MagDer{
+  
+  float: right;
 }
 
 
 
-.boxImg> li > figure >img{
-height: 100px;
-width: 100px;
-text-align: center;
-}*/
+  
 
 @media only screen and (max-width:749px) and  (min-width:360px){
    
@@ -255,7 +298,7 @@ text-align: center;
       block-size: auto;
       grid-gap: 1em;
       display: inline;
-      
+     
       
       
       
@@ -264,6 +307,8 @@ text-align: center;
     .boxFilter{
       height: auto;
       grid-column: 1 / 1;
+      justify-content: center;
+      align-items: center;
     }
    
     
@@ -282,7 +327,7 @@ text-align: center;
   
       display: block;
       width: 150px;
-      height: 200px;
+     
       padding-left: .5em;
       padding-bottom: 1em;
       }
@@ -297,6 +342,7 @@ text-align: center;
       .boxMenuFilt{
         justify-content: center;
         align-items: center;
+        margin-right: 2em;
       }
 
       
