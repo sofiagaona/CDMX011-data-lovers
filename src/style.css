@@ -6,7 +6,7 @@
   font-size: 13px;
   background: var(--Light-grayish-blue);
   font-family: 'Cabin', sans-serif;
-  color: grey;
+  color: var(--Very-dark-grayish-blue)
 
   
  
@@ -69,7 +69,7 @@ h1{
     height: 2em;
     padding: 5px;
     width: 13em;
-
+    color:gray;
   }
   
 
@@ -78,6 +78,7 @@ h1{
     font-size: 1em;
     height: 2em;
     width: 5em;
+    color:gray;
  }
  .bttn{
   margin: 1em 1em 0 0em;
@@ -245,28 +246,24 @@ h1{
   margin-right: 2em;
   margin-left: 2em;
   
-
- 
 }
 
-.FindNomNum > input{
- 
-  font-size: 1em;
+
+
+.inputNomNum{
+  color: gray;
+  font-size: .8em;
   width: 10em;
- 
-  
 }
+
+
 .FindNomNum > p >select{
  
   margin: 0em 1em 0 1em;
   font-size: .8em;
-  
   width: 8em;
   color:gray;
-  font-weight: bold;
-  
-  
-  
+  font-size: .7em;
 }
 
 .MagIzq{

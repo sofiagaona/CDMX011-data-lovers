@@ -17,7 +17,8 @@ document.getElementById("filtrouno").addEventListener("change", addPropFiltro2);
 document.getElementById("btnbuscar").addEventListener("click",filtrar);
 document.getElementById("filtrodos").addEventListener("change", filtrar);
 objfiltroName.addEventListener("keyup", fnfilNamNum);
-document.getElementById("AlfNum").addEventListener("change",fnFilAlfNum);
+document.getElementById("AlfNum").addEventListener("change",filtrar);
+document.getElementById("OrdAscDesc").addEventListener("change", filtrar);
 
 
 
@@ -61,7 +62,7 @@ function addOptions(prop) { //En esta funciòn llenamos el filtro1 con las propi
   
 }
 
-function addPropFiltro2() { //En esta funciòn llenamos el filtro1 con las propieades excepto img y about
+function addPropFiltro2() { //En esta funciòn llenamos el filtro2 subcategoria
 
   let optionFiltro1= objFiltroUno.value;
   
@@ -163,8 +164,9 @@ function addPropFiltro2() { //En esta funciòn llenamos el filtro1 con las propi
 
 function filtrar() {
   const objInfoFil = filterData(data, objFiltroUno.value, objFiltroDos.value)
-  
-  var listPok = objInfoFil.map(function(pok){
+  const objInfFilOrg= sortData(objInfoFil,objFilAlfabNum.value,objFilAscDsc.value);
+  console.log(objInfFilOrg);
+  var listPok = objInfFilOrg.map(function(pok){
     
     return '<li> <div class="boxTarjeta"><div class="boxImg"><figure><a href=pokemon.html><img src='+pok.img+'></a></figure></div><div class="boxInf"><p class="namePok">'+pok.name+'</p><p><span class="texto">Tipo:</span>'+traductor(pok.type)+' </p><p><span class="texto">Fuerte Contra:</span> '+traductor(pok.resistant)+'</p> <p> <span class="texto">Debil Contra:</span> '+traductor(pok.weaknesses)+'</p><p><span class="texto">Ataque Base:</span> '+pok.stats['base-attack']+'</p><p> <span class="texto">Defensa Base:</span> '+pok.stats['base-defense']+'</p></div></div></li>' 
   })
@@ -391,6 +393,8 @@ function fnfilNamNum(){
   })
   document.getElementById("listPok").innerHTML = listPok.join("");
 } 
+
+
 
 
 
