@@ -52,16 +52,27 @@ export const filterData = (data, filtroUno, filtroDos) => {
 };
 
 
-export const sortData=(data, sortBy, sortOrder)=>{
+export const sortData=(data, objFilAlfabNum, objFilAscDsc)=>{
+  
+   if(objFilAlfabNum==="Alfabetico")  {
+     if (objFilAscDsc==="Ascendente"){
+       return data.sort((a, b) => a["name"].localeCompare(b["name"]))
+     }
+      else{
+        return data.sort((a, b) => b["name"].localeCompare(a["name"]))
+      }
+   }
 
-if (sortOrder==="asc"){
-    return data.pokemon.sort((a, b) => a[sortBy].localeCompare(b[sortBy]))
-  }
-  else{
-    return data.pokemon.sort((a, b) => b[sortBy].localeCompare(a[sortBy]))
-  }
+   else{
+    if (objFilAscDsc==="Ascendente"){
+      return data.sort((a, b) => a["num"].localeCompare(b["num"]))
+    }
+     else{
+       return data.sort((a, b) => b["num"].localeCompare(a["num"]))
+     }
+
+   }
 }
- 
 
 export const fnFiltradoTipo = (data2) => {
   

@@ -4,15 +4,22 @@ import data2 from './data/pokemon/types.js';
 import { sortData } from './data.js';
 import {filterData} from './data.js';
 
-console.log(data);
+
 const objFiltroDos = document.getElementById("filtrodos");
 const objFiltroUno = document.getElementById("filtrouno");
+const objfiltroName=document.getElementById("FindNomNumber");
+const objFilAlfabNum=document.getElementById("AlfNum");
+const objFilAscDsc=document.getElementById("OrdAscDesc");
 
 
 
 document.getElementById("filtrouno").addEventListener("change", addPropFiltro2);
 document.getElementById("btnbuscar").addEventListener("click",filtrar);
 document.getElementById("filtrodos").addEventListener("change", filtrar);
+objfiltroName.addEventListener("keyup", fnfilNamNum);
+document.getElementById("AlfNum").addEventListener("change",filtrar);
+document.getElementById("OrdAscDesc").addEventListener("change", filtrar);
+
 
 
 
@@ -28,8 +35,10 @@ propertyFiltro1 = propertyFiltro1.filter(function(exc) {
   }
 });
 
-     addOptions(propertyFiltro1) //llena el selector del filtro 1
-     //addListPok(data) //Muestra todos los pokemons en pantalla
+     addOptions(propertyFiltro1);
+     addPropFiltro2();
+     filtrar();
+
 
 
 
@@ -53,13 +62,17 @@ function addOptions(prop) { //En esta funciòn llenamos el filtro1 con las propi
   
 }
 
-function addPropFiltro2() { //En esta funciòn llenamos el filtro1 con las propieades excepto img y about
+function addPropFiltro2() { //En esta funciòn llenamos el filtro2 subcategoria
 
   let optionFiltro1= objFiltroUno.value;
   
   let tipo;
   let tipoArray="";
   let arrayProp=[];
+
+  
+  fnBoxPuntBase(optionFiltro1);
+  
   
   for (let i=0; i<=data.pokemon.length-1; i++){
     if(typeof data.pokemon[i][optionFiltro1] == "string"){
@@ -151,9 +164,11 @@ function addPropFiltro2() { //En esta funciòn llenamos el filtro1 con las propi
 
 function filtrar() {
   const objInfoFil = filterData(data, objFiltroUno.value, objFiltroDos.value)
-  var listPok = objInfoFil.map(function(pok){
-
-    return '<li><figure><a href=pokemon.html><img src='+pok.img+'></a><figure> '+pok.name+'</li>' 
+  const objInfFilOrg= sortData(objInfoFil,objFilAlfabNum.value,objFilAscDsc.value);
+  console.log(objInfFilOrg);
+  var listPok = objInfFilOrg.map(function(pok){
+    
+    return '<li> <div class="boxTarjeta"><div class="boxImg"><figure><a href=pokemon.html><img src='+pok.img+'></a></figure></div><div class="boxInf"><p class="namePok">'+pok.name+'</p><p><span class="texto">Tipo:</span>'+traductor(pok.type)+' </p><p><span class="texto">Fuerte Contra:</span> '+traductor(pok.resistant)+'</p> <p> <span class="texto">Debil Contra:</span> '+traductor(pok.weaknesses)+'</p><p><span class="texto">Ataque Base:</span> '+pok.stats['base-attack']+'</p><p> <span class="texto">Defensa Base:</span> '+pok.stats['base-defense']+'</p></div></div></li>' 
   })
   document.getElementById("listPok").innerHTML = listPok.join("");
 
@@ -161,6 +176,21 @@ function filtrar() {
   
 
 function traductor(palabra){
+let palabratemp="";
+ if (typeof palabra =="object"){
+   for (let i=0; i<=palabra.length-1;i++){
+     palabratemp=palabratemp + " " + pasarpalabra(palabra[i]);
+    
+  }
+   return palabratemp
+ }
+  
+
+
+
+
+
+ function pasarpalabra(palabra){
   switch (palabra){
     case "name": return "Nombre"
     break;
@@ -333,8 +363,37 @@ function traductor(palabra){
     default: return palabra + " Sin Traducir"
    
   }
+  
+}
+ return  pasarpalabra(palabra)
 }
  
+function fnBoxPuntBase(optionFiltro1){
+   
+  if (optionFiltro1==="stats"){
+    
+    document.getElementById("puntoBase").classList="visible";
+
+  }
+
+  else{
+    document.getElementById("puntoBase").classList="invisible";
+  }
+}
+
+function fnfilNamNum(){
+  
+  let objInfoFil = filterData(data, "name", objfiltroName.value);
+ 
+  if (typeof objInfoFil[0]==="undefined"){
+    objInfoFil = filterData(data, "num", objfiltroName.value);
+  }
+  var listPok = objInfoFil.map(function(pok){
+    return '<li> <div class="boxTarjeta"><div class="boxImg"><figure><a href=pokemon.html><img src='+pok.img+'></a></figure></div><div class="boxInf"><p class="namePok">'+pok.name+'</p><p><span class="texto">Tipo:</span>'+traductor(pok.type)+' </p><p><span class="texto">Fuerte Contra:</span> '+traductor(pok.resistant)+'</p> <p> <span class="texto">Debil Contra:</span> '+traductor(pok.weaknesses)+'</p><p><span class="texto">Ataque Base:</span> '+pok.stats['base-attack']+'</p><p> <span class="texto">Defensa Base:</span> '+pok.stats['base-defense']+'</p></div></div></li>' 
+  })
+  document.getElementById("listPok").innerHTML = listPok.join("");
+} 
+
 
 
 
