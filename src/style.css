@@ -222,6 +222,9 @@ h1{
   .invisible{
     display: none;
   }
+  .visibleFilTres{
+    display: block;
+  }
 
   .txtLabel{
    
