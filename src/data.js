@@ -1,5 +1,5 @@
 
-export const filterData = (data, filtroUno, filtroDos, filtroTres) => {
+export const filterData = (data, filtroUno, filtroDos, filtroTres, nivel) => {
  
    let evolution;
    
@@ -22,8 +22,8 @@ export const filterData = (data, filtroUno, filtroDos, filtroTres) => {
      
       if(typeof data[filtroUno].length == "undefined"){ 
        
-        
-        if(parseInt(data[filtroUno][filtroDos]) >= parseInt(document.getElementById("nivel").value)){
+      
+        if(parseInt(data[filtroUno][filtroDos]) >= parseInt(nivel)){
           
           return true
         }
@@ -60,34 +60,26 @@ export const filterData = (data, filtroUno, filtroDos, filtroTres) => {
       }
     }
     else{
-      
+     
       return data[filtroUno] == filtroDos //filtrar por nombre y numero
 
     }
   });
 
  
- /*
-  for (let i=0; i<=data.pokemon.length -1; i++){
 
-    if ((data.pokemon[i][filtroUno][0]==filtroDos)||(data.pokemon[i][filtroUno][1]==filtroDos)){
-      console.log(data.pokemon[i].name);
-    }
-    
-    et objDataFilt= data.pokemon[i][filtroUno];
-  }
-   
-  var descriptionPok= data.pokemon.find(pokemon => pokemon.name === "charizard");
-  */
 
   return objDataFilt
 };
 
 
 export const sortData=(data, objFilAlfabNum, objFilAscDsc)=>{
-  
-   if(objFilAlfabNum==="Alfabetico")  {
+   
+    
+   if(objFilAlfabNum ==="Alfabetico"){
      if (objFilAscDsc==="Ascendente"){
+      
+      
        return data.sort((a, b) => a["name"].localeCompare(b["name"]))
      }
       else{
@@ -104,18 +96,9 @@ export const sortData=(data, objFilAlfabNum, objFilAscDsc)=>{
      }
 
    }
-}
 
-export const fnFiltradoTipo = (data2) => {
-  
-  //respuesta = respuesta + data['pokemon'][i]['type'];
-  
-  //console.log(Object.keys(data.pokemon[0].name));
-  console.log(data2);
-
-  
-  
-  //return respuesta;
- 
+   //Movil
+   
 };
+
 
