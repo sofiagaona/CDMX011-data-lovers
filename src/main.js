@@ -1,6 +1,6 @@
 
 import data from './data/pokemon/pokemon.js';
-
+import data2 from './data/pokemon/types.js';
 import { sortData } from './data.js';
 import {filterData} from './data.js';
 
@@ -82,7 +82,7 @@ function fnMenuDos(){
 }
 
 function filtrar(){
-  fnFiltradoTipo(data)
+  fnFiltradoTipo(data2);
 }
 
 /*function fnOcultarTxBx(){

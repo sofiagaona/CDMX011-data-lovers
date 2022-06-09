@@ -19,11 +19,13 @@ if (sortOrder==="asc"){
 }
  
 
-export const fnFiltradoTipo = (data) => {
+export const fnFiltradoTipo = (data2) => {
   
   //respuesta = respuesta + data['pokemon'][i]['type'];
   
-  console.log(data.pokemon.key);
+  //console.log(Object.keys(data.pokemon[0].name));
+  console.log(data2);
+
   
   
   //return respuesta;
